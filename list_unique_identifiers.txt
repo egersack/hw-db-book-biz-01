@@ -1,0 +1,6 @@
+book_ISBN
+author_uniqueidentifier
+editor_uniqueidentifier
+publisher_uniqueidentifier
+customer_uniqueidentifier
+order_uniqueidentifier

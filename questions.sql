@@ -1,0 +1,12 @@
+-- 7.1. Books per author.
+-- 7.2. Authors per book.
+-- 7.3. Author royalties on a book.
+-- 7.4. Book royalties per author.
+-- 7.5. Books in a genre.
+-- 7.6. Books published by a publisher.
+-- 7.7. Editors per book.
+-- 7.8. Books per editor.
+-- 7.9. Books in an order.
+-- 7.10. Orders for a book.
+-- 7.11. Customer orders.
+-- 7.12. Orders per customer.
