@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `ps3`;
-CREATE DATABASE IF NOT EXISTS `ps3`;
-USE `ps3`;
+DROP DATABASE IF EXISTS `bookbusiness`;
+CREATE DATABASE IF NOT EXISTS `bookbusiness`;
+USE `bookbusiness`;
 
 SET NAMES UTF8MB4;
 SET character_set_client = UTF8MB4;
@@ -8,40 +8,48 @@ SET character_set_client = UTF8MB4;
 CREATE TABLE `book` (
     `title`         varchar(20) NOT NULL,
     `genre`         varchar(20) NOT NULL,
-    `book_ISBN`     int NOT NULL,
-    PRIMARY KEY (`book_ISBN`),
+    `author_UID`    int NOT NULL,
+    `price`         float NULL,
+    `editor_UID`    int NOT NULL,
+    `ISBN`     int NOT NULL,
+    PRIMARY KEY (`ISBN`),
+    FOREIGN KEY (`author_UID`) REFERENCES `author`(`author_UID`),
+    FOREIGN KEY (`editor_UID`) REFERENCES `editor`(`editor_UID`),
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `author` (
-    `firstName`     varchar(20) NOT NULL,
-    `lastName`      varchar(20) NOT NULL,
-    `author_UID`    int NOT NULL AUTO_INCREMENT,
+    `author_firstname`     varchar(20) NOT NULL,
+    `author_lastname`      varchar(20) NOT NULL,
+    `author_UID`           int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`author_UID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `editor` (
-    `firstName`     varchar(20) NOT NULL,
-    `lastName`      varchar(20) NOT NULL,
-    `editor_UID`    int NOT NULL AUTO_INCREMENT,
+    `editor_firstname`     varchar(20) NOT NULL,
+    `editor_lastname`      varchar(20) NOT NULL,
+    `editor_UID`           int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`editor_UID`),
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `publisher` (
-    `name`          varchar(20) NOT NULL,
-    `publisher_UID` int NOT NULL AUTO_INCREMENT,
+    `publisher_name`        varchar(20) NOT NULL,
+    `publisher_UID`         int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`publisher_UID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `customer` (
-    `firstName`     varchar(20) NOT NULL,
-    `lastName`      varchar(20) NOT NULL,
-    `customer_UID` int NOT NULL AUTO_INCREMENT,
+    `customer_firstname`     varchar(20) NOT NULL,
+    `customer_lastname`      varchar(20) NOT NULL,
+    `customer_UID`           int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`customer_UID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `order` (
-    `customer_UID` int NOT NULL,
-    `date` varchar(20) NOT NULL,
-    `order_UID` int NOT NULL AUTO_INCREMENT,
+    `customer_UID`          int NOT NULL,
+    `ISBN`                  int NOT NULL,
+    `order_date`            varchar(20) NOT NULL,
+    `order_UID`             int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`order_UID`),
+    FOREIGN KEY (`customer_UID`) REFERENCES `customer`(`customer_UID`),
+    FOREIGN KEY (`ISBN`) REFERENCES `book`(`ISBN`),
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;

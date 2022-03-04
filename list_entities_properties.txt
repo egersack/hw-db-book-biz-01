@@ -1,4 +1,5 @@
-# entities
+QUESTION 1
+# entities:
 book
 author
 editor
@@ -6,26 +7,36 @@ publisher
 customer
 order
 
-/*properties
-book_title
-book_genre
-book_ISBN
+# properties:
+(entity 1: book)
+title 
+genre 
+author_UID
+price
+editor_UID
+ISBN
 
+(entity 2: author)
 author_firstname
 author_lastname
 author_UID
 
+(entity 3: editor)
 editor_firstname
 editor_lastname
 editor_UID
 
+(entity 4: publisher)
 publisher_name
 publisher_UID
 
+(entity 5: customer)
 customer_firstname
 customer_lastname
 customer_UID
 
-order_customer
+(entity 6: order)
+customer_UID
+ISBN
 order_date
 order_UID
