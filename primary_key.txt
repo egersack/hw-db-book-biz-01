@@ -1,6 +1,0 @@
-book_ISBN
-author_UID
-editor_UID
-publisher_UID
-customer_UID
-order_UID
