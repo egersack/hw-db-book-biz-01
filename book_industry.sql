@@ -77,4 +77,3 @@ CREATE TABLE `junction_editor_book` (
     FOREIGN KEY (`editor_UID`) REFERENCES `editor`(`editor_UID`),
     FOREIGN KEY (`ISBN`) REFERENCES `book`(`ISBN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4 COLLATE=utf8mb4_0900_ai_ci;
-
