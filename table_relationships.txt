@@ -1,0 +1,6 @@
+book-author: N:N 
+book-editor: N:N 
+book-order: N:N
+book-publisher: N:1
+editor-publisher: N:1
+order-customer: N:1
